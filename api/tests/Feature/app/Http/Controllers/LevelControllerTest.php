@@ -1,21 +1,21 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\app\Http\Controllers;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\Level;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class LevelControllerTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_the_application_returns_a_successful_response()
-    {
-        $response = $this->get('/');
+   // use DatabaseMigrations;
+      use RefreshDatabase;
 
-        $response->assertStatus(200);
+    public function testCreateLevel()
+    {
+        $responseLevel = $this->postJson('/api/levels', level());
+        $responseLevel->assertStatus(201)->assertJsonFragment($responseLevel['data']);
+        $this->assertDatabaseHas('levels', $responseLevel['data']);
     }
 }

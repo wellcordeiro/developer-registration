@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('name');
             $table->char('gender');
             $table->string('hobby')->nullable();
-            $table->date('birthdate')->nullable();
+            $table->date('birthdate');
             $table->timestamps();
         });
     }

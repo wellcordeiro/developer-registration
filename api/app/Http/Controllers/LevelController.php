@@ -16,8 +16,12 @@ class LevelController extends Controller
 
     public function store(Request $request)
     {
+       $this->validate($request, [
+            'name' => 'required',
+        ]);
+
         $level = Level::create($request->all());
-        return response()->json($level);
+        return new LevelResource($level);
     }
 
     public function show(Level $level)

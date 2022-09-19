@@ -17,9 +17,7 @@ class DeveloperFactory extends Factory
     public function definition()
     {
         return [
-            'id'  => $this->faker->unique()->randomNumber(3),
             'name' => $this->faker->sentence(11),
-            'level_id' => $this->faker->numberBetween(1, 5),
             'gender' => $this->faker->randomElement(['M', 'F']),
             'birthdate' => $this->faker->date(),
             'hobby' => $this->faker->randomElement(['Reading', 'Writing', 'Coding', 'Gaming', 'Watching TV', 'Listening to Music', 'Playing Sports'])
