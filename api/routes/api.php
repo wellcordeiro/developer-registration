@@ -16,11 +16,14 @@ use App\Http\Controllers\LevelController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::apiResources([
     'developers' => DeveloperController::class,
     'levels' => LevelController::class,
 ]);
+
+Route::get('/', function () {
+    return response()->json([
+        'API' => 'Api Developer Registration',
+    ]);
+});
+
