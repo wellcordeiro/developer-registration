@@ -16,6 +16,7 @@ use App\Http\Controllers\LevelController;
 |
 */
 
+//apiRoutes: GET/HEAD, POST, PUT/PATCH, DELETE;
 Route::apiResources([
     'developers' => DeveloperController::class,
     'levels' => LevelController::class,
@@ -23,7 +24,14 @@ Route::apiResources([
 
 Route::get('/', function () {
     return response()->json([
-        'API' => 'Api Developer Registration',
+        'API' => "API Developer Registration - #DesafioFullStackGazinTech",
+        'version' => '1.0.0',
+        'author' => 'Welington Borba Cordeiro',
+        'email' => 'wellinkeed@gmail.com',
     ]);
 });
 
+Route::fallback(function () {
+    return response()->json([
+        'message' => 'Page Not Found. If error persists, contact administrator.'], 404);
+});
