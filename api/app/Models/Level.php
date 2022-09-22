@@ -14,4 +14,9 @@ class Level extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function developers()
+    {
+        return $this->hasMany(Developer::class, 'level_id', 'id');
+    }
 }

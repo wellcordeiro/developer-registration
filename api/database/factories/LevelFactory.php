@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory
  */
 class LevelFactory extends Factory
 {
@@ -19,6 +19,5 @@ class LevelFactory extends Factory
         return [
             'name' => $this->faker->unique()->randomElement(['Junior', 'Mid', 'Senior', 'Lead', 'Expert'])
         ];
-
     }
 }
