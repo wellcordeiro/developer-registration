@@ -16,7 +16,7 @@ use App\Http\Controllers\LevelController;
 |
 */
 
-//apiRoutes: GET/HEAD, POST, PUT/PATCH, DELETE;
+#apiRoutes: GET/HEAD, POST, PUT/PATCH, DELETE;
 Route::apiResources([
     'developers' => DeveloperController::class,
     'levels' => LevelController::class,
@@ -24,7 +24,7 @@ Route::apiResources([
 
 Route::get('/', function () {
     return response()->json([
-        'API' => "API Developer Registration - #DesafioFullStackGazinTech",
+        'API' => 'API Developer Registration - #DesafioFullStackGazinTech',
         'version' => '1.0.0',
         'author' => 'Welington Borba Cordeiro',
         'email' => 'wellinkeed@gmail.com',
