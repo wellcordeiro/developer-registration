@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\DeveloperRepository;
-use Illuminate\Http\Request;
 
 class DeveloperService
 {
@@ -38,5 +37,4 @@ class DeveloperService
     {
         return $this->repository->delete($id);
     }
-
 }

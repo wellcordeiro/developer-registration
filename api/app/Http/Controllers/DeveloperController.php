@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Developer\StoreUpdateDeveloper;
+use App\Http\Requests\StoreUpdateDeveloper;
 use App\Http\Resources\DeveloperResource;
 use App\Services\DeveloperService;
 
@@ -73,7 +73,7 @@ class DeveloperController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

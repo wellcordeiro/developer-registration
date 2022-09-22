@@ -19,4 +19,13 @@ class Developer extends Model
         'birthdate',
         'hobby',
     ];
+
+    protected $casts = [
+        'level_id' => 'int',
+    ];
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class, 'level_id', 'id');
+    }
 }
