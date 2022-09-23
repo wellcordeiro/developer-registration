@@ -13,9 +13,17 @@ class DeveloperService
         $this->repository = $repository;
     }
 
-    public function getDevelopers()
+    public function getDevelopers($search)
     {
-        return $this->repository->getAll();
+        if ($search->query('level_id')) {
+            $developers = $this->repository->searchByLevel($search->query('level_id'));
+        } else if ($search->query('name')) {
+            $developers = $this->repository->searchByName($search->query('name'));
+        } else {
+            $developers = $this->repository->getAll();
+        }
+
+        return $developers;
     }
 
     public function getDeveloperById(int $id)

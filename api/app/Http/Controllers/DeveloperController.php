@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateDeveloper;
 use App\Http\Resources\DeveloperResource;
+use App\Models\Developer;
 use App\Services\DeveloperService;
+use Illuminate\Http\Request;
 
 
 class DeveloperController extends Controller
@@ -16,9 +18,9 @@ class DeveloperController extends Controller
         $this->developerService = $developerService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $developers = $this->developerService->getDevelopers();
+        $developers = $this->developerService->getDevelopers($request);
 
         return DeveloperResource::collection($developers);
     }
@@ -51,6 +53,8 @@ class DeveloperController extends Controller
         $developer = $this->developerService->getDeveloperById($id);
         return new DeveloperResource($developer);
     }
+
+
 
     /**
      * Update the specified resource in storage.

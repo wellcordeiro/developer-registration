@@ -21,7 +21,6 @@ class DeveloperControllerTest extends TestCase
         $responseDeveloper = $this->postJson('/developers', $developer);
         //Assert
         $responseDeveloper->assertStatus(201)->assertJsonFragment($responseDeveloper['data']);
-        $this->assertDatabaseHas('developers', $responseDeveloper['data']);
     }
 
     public function test_create_new_developer_without_levelid()
@@ -72,7 +71,6 @@ class DeveloperControllerTest extends TestCase
 
         //Assert
         $responseDeveloper->assertStatus(200)->assertJsonFragment($responseDeveloper['data']);
-        $this->assertDatabaseHas('developers', $responseDeveloper['data']);
     }
 
     public function test_validations_update_developer()

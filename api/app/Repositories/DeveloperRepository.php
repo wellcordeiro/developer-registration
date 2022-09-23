@@ -15,7 +15,19 @@ class DeveloperRepository
 
     public function getAll()
     {
-        return $this->developer->all();
+        return $this->developer->paginate(15);
+    }
+
+    public function searchByName($name)
+    {
+        return $this->developer->where('name', 'like', "%{$name}%")
+            ->orWhere('email', 'like', "%{$name}%")
+            ->paginate(20);
+    }
+
+    public function searchByLevel($level_id)
+    {
+        return $this->developer->where('level_id', $level_id)->paginate(20);
     }
 
     public function getDeveloperById(int $id): Developer

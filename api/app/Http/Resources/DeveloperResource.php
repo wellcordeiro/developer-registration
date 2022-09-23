@@ -19,12 +19,14 @@ class DeveloperResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'level_id' => $this->level_id,
             'gender' => $this->gender,
             'birthdate' => $this->birthdate,
+            'level_data' => [
+                'id' => $this->level_id,
+                'name' => $this->level->name,
+            ],
             'created_at' => Carbon::create($this->created_at)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::create($this->updated_at)->format('Y-m-d H:i:s'),
         ];
-        //return parent::toArray($request);
     }
 }
