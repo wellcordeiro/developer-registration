@@ -20,7 +20,10 @@ class LevelResource extends JsonResource
             'name' => $this->name,
             'created_at' => Carbon::create($this->created_at)->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::create($this->updated_at)->format('Y-m-d H:i:s'),
+            'developers' => [
+                'href' => route('developers.index', ['level_id' => $this->id]),
+                'count' => $this->developers()->count(),
+            ],
         ];
-        //  return parent::toArray($request);
     }
 }
