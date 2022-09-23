@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUpdateLevel;
 use App\Http\Resources\LevelResource;
 use App\Models\Level;
 use App\Services\LevelService;
+use Illuminate\Http\Request;
 
 class LevelController extends Controller
 {
@@ -16,9 +17,9 @@ class LevelController extends Controller
         $this->levelService = $levelService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $level = $this->levelService->getLevels();
+        $level = $this->levelService->getLevels($request);
 
         return LevelResource::collection($level);
     }

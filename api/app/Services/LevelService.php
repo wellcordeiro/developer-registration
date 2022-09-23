@@ -14,9 +14,15 @@ class LevelService
         $this->repository = $repository;
     }
 
-    public function getLevels()
+    public function getLevels($request)
     {
-        return $this->repository->getAll();
+        $search = $request->query('name');
+
+        if (!empty($search)) {
+            return $this->repository->searchByName($search);
+        } else {
+            return $this->repository->getAll();
+        }
     }
 
     public function getLevelById(int $id)

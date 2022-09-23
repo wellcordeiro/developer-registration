@@ -15,7 +15,12 @@ class LevelRepository
 
     public function getAll()
     {
-        return $this->level->all();
+        return $this->level->paginate(15);
+    }
+
+    public function searchByName(string $name)
+    {
+        return $this->level->where('name', 'like', "%{$name}%")->paginate(20);
     }
 
     public function getLevelById(int $id)

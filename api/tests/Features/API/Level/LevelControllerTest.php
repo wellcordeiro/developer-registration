@@ -20,7 +20,6 @@ class LevelControllerTest extends TestCase
         $responseLevel = $this->postJson('/levels', $level);
         //Assert
         $responseLevel->assertStatus(201)->assertJsonFragment($responseLevel['data']);
-        $this->assertDatabaseHas('levels', $responseLevel['data']);
     }
 
     public function test_create_duplicate_level()
@@ -59,7 +58,6 @@ class LevelControllerTest extends TestCase
 
         //Assert
         $responseLevel->assertStatus(200)->assertJsonFragment($responseLevel['data']);
-        $this->assertDatabaseHas('levels', $responseLevel['data']);
     }
 
     public function test_update_level_not_found()
